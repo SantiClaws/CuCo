@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CuCo</string>
+
+    <string name="welcome">Thank you for using this app. Please enter the amount and select the two currencies that you want to convert, then click Start!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="curr_array">
+        <item>CAD</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>CNY</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>HKD</item>
+        <item>BTC</item>
+    </string-array>
+</resources>

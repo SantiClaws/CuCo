@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/notifications">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="sendBack" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Notifications?"
+        android:id="@+id/setbox"
+        android:checked="false"
+        android:layout_alignTop="@+id/back"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="52dp"
+        android:layout_marginEnd="52dp"
+        android:onClick="onsetboxClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Start Time"
+        android:id="@+id/btnTimePicker"
+        android:onClick="onClick"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtTime"
+        android:layout_alignBottom="@+id/btnTimePicker"
+        android:layout_alignRight="@+id/setbox"
+        android:layout_alignEnd="@+id/setbox"
+        android:layout_alignLeft="@+id/setbox"
+        android:layout_alignStart="@+id/setbox" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Amount:"
+        android:id="@+id/textbox8"
+        android:layout_below="@+id/hrInt"
+        android:layout_alignRight="@+id/btnTimePicker"
+        android:layout_alignEnd="@+id/btnTimePicker"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="From:"
+        android:id="@+id/textbox9"
+        android:layout_below="@+id/hrInt"
+        android:layout_alignLeft="@+id/textbox8"
+        android:layout_alignStart="@+id/textbox8"
+        android:layout_marginTop="136dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="To:"
+        android:id="@+id/textView5"
+        android:layout_marginTop="17dp"
+        android:layout_alignTop="@+id/TCurr2"
+        android:layout_alignLeft="@+id/textbox9"
+        android:layout_alignStart="@+id/textbox9" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/exchangetwo"
+        android:layout_alignTop="@+id/textbox8"
+        android:layout_alignRight="@+id/txtTime"
+        android:layout_alignEnd="@+id/txtTime"
+        android:layout_alignLeft="@+id/txtTime"
+        android:layout_alignStart="@+id/txtTime" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FCurr2"
+        android:layout_below="@+id/minInt"
+        android:layout_alignLeft="@+id/exchangetwo"
+        android:layout_alignStart="@+id/exchangetwo"
+        android:layout_marginTop="117dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TCurr2"
+        android:layout_below="@+id/FCurr2"
+        android:layout_alignLeft="@+id/FCurr2"
+        android:layout_alignStart="@+id/FCurr2"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Hour Interval:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/btnTimePicker"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_marginTop="58dp" />
+
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/hrInt"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toRightOf="@+id/textbox9"
+        android:layout_toEndOf="@+id/textbox9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Minute Interval:"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/hrInt"
+        android:layout_alignLeft="@+id/txtTime"
+        android:layout_alignStart="@+id/txtTime" />
+
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/minInt"
+        android:imeOptions="actionDone"
+        android:layout_alignTop="@+id/textView7"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp" />
+
+
+</RelativeLayout>

@@ -46,8 +46,11 @@ public class DeviceBootReceiver extends BroadcastReceiver {
             //Toast.makeText(context, savedhour + " " + savedminute + " " + hrInterval + " " + minInterval,Toast.LENGTH_LONG).show();
 
             AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            int interval = hrInterval*60*60*1000 + minInterval*60*1000;;
+            int interval = hrInterval*60*60*1000 + minInterval*60*1000;
             manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
+
+
+
 
 
         }

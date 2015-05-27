@@ -468,6 +468,12 @@ public class Notifications extends ActionBarActivity {
         int interval = hrInterval*60*60*1000 + minInterval*60*1000;
         Log.i("Interval",Integer.toString(interval));
 
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        //hrInterval = prefs.getInt("HourInteger", 1);
+        //minInterval = prefs.getInt("MinuteInteger",1);
+        savedhour = prefs.getInt("savedhour",0);
+        savedminute = prefs.getInt("savedminute",5);
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, savedhour);

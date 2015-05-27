@@ -29,7 +29,7 @@ public class DeviceBootReceiver extends BroadcastReceiver {
             hrInterval = prefs.getInt("HourInteger", 1);
             minInterval = prefs.getInt("MinuteInteger",1);
             savedhour = prefs.getInt("savedhour",0);
-            savedminute = prefs.getInt("savedminute",0);
+            savedminute = prefs.getInt("savedminute",5);
 
             Intent alarmIntent = new Intent(context, AlarmReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);

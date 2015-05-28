@@ -424,8 +424,8 @@ public class Notifications extends ActionBarActivity {
             editor.putString("MinuteInterval", minInt.getText().toString());
             editor.putInt("HourInteger", hrInterval);
             editor.putInt("MinuteInteger", minInterval);
-            editor.putInt("savedhour",savedhour);
-            editor.putInt("savedminute",savedminute);
+            //editor.putInt("savedhour",savedhour);
+            //editor.putInt("savedminute",savedminute);
             editor.apply();
 
             /* Retrieve a PendingIntent that will perform a broadcast */
@@ -468,11 +468,22 @@ public class Notifications extends ActionBarActivity {
         int interval = hrInterval*60*60*1000 + minInterval*60*1000;
         Log.i("Interval",Integer.toString(interval));
 
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        //SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         //hrInterval = prefs.getInt("HourInteger", 1);
         //minInterval = prefs.getInt("MinuteInteger",1);
-        savedhour = prefs.getInt("savedhour",0);
-        savedminute = prefs.getInt("savedminute",5);
+        //savedhour = prefs.getInt("savedhour",0);
+        //savedminute = prefs.getInt("savedminute",5);
+
+        String settime = txtTime.getText().toString();
+
+        Pattern p = Pattern.compile("(\\d+):(\\d+)");
+
+        Matcher m = p.matcher(settime);
+
+        if (m.find()) {
+            savedhour = Integer.parseInt(m.group(1));
+            savedminute = Integer.parseInt(m.group(2));
+        }
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -480,7 +491,7 @@ public class Notifications extends ActionBarActivity {
         calendar.set(Calendar.MINUTE, savedminute);
         calendar.set(Calendar.SECOND, 0);
 
-
+        Toast.makeText(this,"V2",Toast.LENGTH_LONG).show();
 
         String k = Integer.toString(savedhour);
         String w = Integer.toString(savedminute);

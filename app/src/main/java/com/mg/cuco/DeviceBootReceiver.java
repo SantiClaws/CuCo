@@ -10,6 +10,8 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -19,6 +21,7 @@ public class DeviceBootReceiver extends BroadcastReceiver {
 
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     int hrInterval, minInterval, savedhour, savedminute;
+    String txtTime;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -28,12 +31,25 @@ public class DeviceBootReceiver extends BroadcastReceiver {
             SharedPreferences prefs = context.getSharedPreferences(MY_PREFS_NAME, context.MODE_PRIVATE);
             hrInterval = prefs.getInt("HourInteger", 1);
             minInterval = prefs.getInt("MinuteInteger",1);
-            savedhour = prefs.getInt("savedhour",0);
-            savedminute = prefs.getInt("savedminute",5);
+            //savedhour = prefs.getInt("savedhour",0);
+            //savedminute = prefs.getInt("savedminute",5);
+            txtTime = prefs.getString("DailyTime",null);
 
             Intent alarmIntent = new Intent(context, AlarmReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
 
+            String settime = txtTime;
+
+            Pattern p = Pattern.compile("(\\d+):(\\d+)");
+
+            Matcher m = p.matcher(settime);
+
+            if (m.find()) {
+                savedhour = Integer.parseInt(m.group(1));
+                savedminute = Integer.parseInt(m.group(2));
+            }
+
+            Toast.makeText(context,"V2",Toast.LENGTH_LONG).show();
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
